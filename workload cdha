@@ -1,0 +1,29 @@
+dag {
+"N. of CTs" [pos="1.183,0.242"]
+"N. of MRIs" [pos="1.183,-1.386"]
+"N. of US" [pos="1.173,-0.384"]
+"N. of XRs" [pos="1.173,-0.905"]
+"N. of doctors" [pos="-1.375,-0.002"]
+"N. of nurses" [pos="-0.946,-0.490"]
+"N. of technicians" [pos="-1.754,0.512"]
+"days off" [pos="-1.245,-1.465"]
+"on call" [pos="-1.679,-1.214"]
+school [pos="-2.028,-0.905"]
+workload [outcome,pos="-0.336,0.621"]
+"N. of CTs" -> workload
+"N. of MRIs" -> workload
+"N. of US" -> workload
+"N. of XRs" -> workload
+"N. of doctors" -> workload
+"N. of nurses" -> workload
+"N. of technicians" -> workload
+"days off" -> "N. of doctors"
+"days off" -> "N. of nurses"
+"days off" -> "N. of technicians"
+"on call" -> "N. of doctors"
+"on call" -> "N. of nurses"
+"on call" -> "N. of technicians"
+school -> "N. of doctors"
+school -> "N. of nurses"
+school -> "N. of technicians"
+}

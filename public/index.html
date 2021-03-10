@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='vi'>
+    <head>
+        <title>cch-kpi</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Ngân hàng KPI tại CCH</h1>
+        </header>
+        <main>
+            
+        </main>
+        <footer>
+            <script>
+fetch("./kpi_bank.json").then(res => res.json()).then(out => {
+    let main = document.querySelector('main')
+    for (const category in out){
+        let cat = document.createElement("details")
+        cat.className="level1"
+        let cat_sum = document.createElement("summary")
+        cat_sum.append(category)
+        cat.append(cat_sum)
+        
+        for (const criteria in out[category]) {
+            let crit = document.createElement("details")
+            crit.className='level2'
+            let crit_sum = document.createElement('summary')
+            crit_sum.append(criteria,"-", out[category][criteria]['name'])
+            crit.append(crit_sum)
+            let crit_ul = document.createElement('ul')
+            for (const property in out[category][criteria]){
+                let prop_li = document.createElement('li')
+                prop_li.append(property,": ",out[category][criteria][property])
+                crit_ul.append(prop_li)
+            }
+            crit.append(crit_ul)
+            cat.append(crit)
+        }
+        main.append(cat)
+    }
+});
+</script>
+        </footer>
+    </body>
+</html>
