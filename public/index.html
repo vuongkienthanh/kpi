@@ -13,7 +13,7 @@
         </main>
         <footer>
             <script>
-fetch("./kpi_bank.json").then(res => res.json()).then(out => {
+fetch("kpi_bank.json").then(res => res.json()).then(out => {
     let main = document.querySelector('main')
     for (const category in out){
         let cat = document.createElement("details")
@@ -31,6 +31,7 @@ fetch("./kpi_bank.json").then(res => res.json()).then(out => {
             let crit_ul = document.createElement('ul')
             for (const property in out[category][criteria]){
                 let prop_li = document.createElement('li')
+
                 prop_li.append(property,": ",out[category][criteria][property])
                 crit_ul.append(prop_li)
             }
